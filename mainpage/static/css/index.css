@@ -1,0 +1,246 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+}
+.card
+{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-content: space-around;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 8px slategray;
+    padding: 3px 3px;
+    margin: 15px 0px;
+}
+.image
+{
+    padding: 10px 20px;
+    height: 100px;
+    align-content: center;
+    grid-column: 1/2;
+}
+.details
+{
+    grid-column: 2/3;
+}
+.title
+{
+    text-align: center;
+    font-size: 20px;
+    padding: 3px 0px;
+    font-weight: bold;
+}
+.price
+{
+    padding-top: 10px;
+    text-align: right;
+    font-size: 14px;
+}
+.description
+{
+    font-size: 12px;
+}
+#search
+{
+    width: 100%;
+    margin: 4px 0px;
+}
+nav{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    display:flex;
+    justify-content: space-around;
+	align-items: center;
+	min-height: 25px;
+    background-color: rgb(40,40,40);
+}
+.bottom
+{
+    width:80%;
+    display: flex;
+    justify-content: space-around;
+}
+.logo
+{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+    font-size:16px;
+    width:20%;
+	color: rgb(226,226,226);
+}
+.links
+{
+    display:flex;
+	justify-content: space-around; /*You need to define the space using width*/	
+}
+.link
+{
+    width:100%;
+}
+li
+{
+	list-style-type: none;
+}
+.links a, .links
+{
+	color: rgb(226,226,226);
+    font-size: 11px;
+    text-decoration: none;
+    padding: 6px 0px;
+}
+a{
+	text-decoration: none;
+}
+a:hover
+{
+	color: rgb(226,226,226);
+}
+.burger
+{
+	display: none;
+}
+.burger div
+{
+	width: 25px;
+	height: 2px;
+	background-color: rgb(226,226,226);
+	margin: 5px;
+	transition: all 0.3s ease-in;
+}
+.content
+{
+	font-family: 'Hind', sans-serif;
+	font-size: 20px;
+	padding-left: 2vw;
+	margin:5vw 20px;
+}
+
+@media screen and (max-width:1440px)
+{
+	.links 
+	{
+		width:70%;
+	}
+}
+
+@media screen and (max-width:800px)
+{
+	.links
+	{
+		position:absolute;
+		justify-content: space-around;
+		display: flex;
+		flex-direction: column;
+        height: 100vh;
+        top: 50px;
+        right: 0px;
+		background-color: rgb(40,40,40);
+		width: 150px;
+		visibility: hidden;
+	}
+	.links li
+	{
+		cursor: pointer;
+		opacity:0;
+	}
+	.burger
+	{
+        position: absolute;
+        right:0px;
+		display: block;
+		cursor: pointer;
+    }
+    .logo
+    {
+        width:80%;
+        text-align: center;
+    }
+    .content
+	{
+        margin-top: 70px;
+    }
+    nav
+    {
+        display: grid;
+        width: 100%;
+        grid-template-rows: 50% 50%;
+    }
+    .top
+    {
+        display: flex;
+        grid-row: 1/2;
+    }
+    .bottom
+    {
+        grid-row: 2/3;
+        justify-content: space-between;
+        display: flex;
+    }
+    #search
+    {
+        width:200px;
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+
+}
+@media screen and (max-width: 800px)
+{
+    .card
+    {
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+    }
+    .image
+    {
+        height: 70px;
+        padding: 10px 80px;
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+    .details
+    {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+}
+@keyframes navLinkFade
+{
+	from
+	{
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+	to
+	{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+@keyframes appear
+{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity:1;
+	}
+}
+.nav-active
+{
+	visibility: visible;
+}
+.toggle .line1
+{
+	transform: rotate(-45deg) translate(0px,10px);
+}
+.toggle .line2
+{
+	opacity:0;
+}
+.toggle .line3
+{
+	transform: rotate(45deg) translate(0px,-10px);
+}

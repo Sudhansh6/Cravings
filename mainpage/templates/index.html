@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cravings!</title>
+        <link rel = icon >
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <script src="{% static 'script/script.js' %}"></script>
+        <script src="{% static 'script/cart.js' %}"></script>
+    </head>
+
+    <body>
+        <nav>
+            <div class = top>
+                <div class="logo">
+                    <h3> Cravings! </h3>
+                </div>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+            <div class = bottom>
+                <input type=text placeholder="Search for your craving" id=search onkeyup="query()">
+                <div class = link>
+                    <ul class="links">
+                        <li><a href='cart/'>CART</a></li>
+                        {% if user.is_authenticated %}
+                        <li style=color:rgb(226,226,226);font-size:12px;>Hello, {{ user.first_name}}</li>
+                        <li><a href = 'accounts/logout'>SIGN OUT</a></li>
+                        {% else %}
+                        <li><a href='accounts/register'>REGISTER</a></li>
+                        <li><a href='accounts/login'>LOGIN</a></li>
+                        {% endif %}
+                    </ul>
+                </div>   
+            </div>    
+        </nav>
+        <div class = content>
+            {% for item in items %}
+            <div class = card id = {{item.name}}>
+                <img src= "{{item.img.url}}" height=50px class=image>
+                <div class = details>
+                    <div class = title >{{ item.name }}</div>
+                    <div class = description> {{ item.description }} </div>
+                    <div class = price>
+                        -/{{ item.price }}<br>  
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <button name=id value={{item.id}} type = submit>Add to Cart</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                NO ITEMS AVAILABLE
+            {% endfor %}
+        </div>
+    </body>
+</html>
