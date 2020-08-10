@@ -41,6 +41,10 @@
         </div>
     </nav>
     <div class=content>
+        {% for message in messages %}
+        <h4>{{message}}</h4>
+        {% endfor %}
+        <br>
         <h2>Contact Us</h2>
         <form method="post" class = form> 
             <div class=section>

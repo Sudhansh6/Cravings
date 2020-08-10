@@ -4,6 +4,7 @@ from cart.models import item as user_item
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django import forms
+from django.core.mail import EmailMessage
 
 # Create your views here.
 def index(request):
@@ -30,7 +31,17 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # send email code goes here
+            sender_name = form.cleaned_data['name']
+            sender_email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            email = EmailMessage(
+                "New contact form submission",
+                message,
+                "Your website" + '',
+                ['sudhansh6@gmail.com'],
+                headers={'Reply-To': sender_email}
+            )
+            email.send()
             messages.info(request, "Thank you for contacting us :)")
             return redirect('/contact')
     else:
