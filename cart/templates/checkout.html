@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/form2.css' %}">
     <link rel="icon" href="{% static 'pictures/icon.png' %}">
     <script src="{% static 'script/script.js' %}"></script>
+    <script src="{% static 'script/validate.js' %}"></script>
 </head>
 
 <body>
@@ -41,25 +42,44 @@
     </nav>
     <div class = body >
         <div class=content>
-            <form class = form>
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+            {% for a in address %}
+            <form class = form action = '/cart/checkout' method = 'post'>
+                {% csrf_token %}
+                
+                <div class = section>
+                   <button type = submit name = old value={{a.id}} class = options>
+                       Use {{a.name}}'s address for delivery<br>
+                       <span class = subtext>{{a.street}}...</span>
+                    </button>
+                </div> 
+            </form>
+            {% endfor %}
+            <div id=message></div>
+            <form class=form id=form action ='/cart/checkout' method='post' onSubmit="return checkform()">
                 {% csrf_token %}
                 <div class = section>
-                    <label> Delivery address </label>
-                    <input>
+                    <label> Name </label>
+                    <input required name = name placeholder="Name of the address (keep it unique)">
+                    <label> Street Address </label>
+                    <input required name = street placeholder="Do not exceed 50 characters">
+                    <label> City </label>
+                    <input required name = city placeholder="Hyderabad">
+                    <label> State </label>
+                    <select required name="state">
+                        <option value="TS">Telangana</option>
+                        <option value="AP">Andhra Pradhesh</option>
+                        <option value="MH">Maharashtra</option>
+                    </select>
+                    <label> PINCODE </label>
+                    <input required name = pin placeholder="123456">
                     <label> Contact No.</label>
-                    <input>
+                    <input required name = phone placeholder="XXXXXXXXXX">
+                    <button onclick='return validate()' name=old value=-1 class=button>Add address</button>
                 </div>
-                <div class = section>
-                    <label>Credit Card No.</label>
-                    <input>
-                    <label>Name</label>
-                    <input>
-                    <label>Expiry Date</label>
-                    <input>
-                    <label>CVV</label>
-                    <input>
-                </div>
-            </form>  
+            </form>
         </div>
 
         <div class=checkout>
@@ -77,14 +97,6 @@
                     <td>{{delivery}}</td>
                 </tr>
                 <tr>
-                    <td>Delivery Tip</td>
-                    <td>
-                        <form method='post'>
-                            <input class=tip action=submit type="number" name="tip" min="5" step="5" style=''>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
                     <td>Taxes and Charges</td>
                     <td>{{taxes}}</td>
                 </tr>
@@ -93,10 +105,17 @@
                     <th>{{total}}</th>
                 </tr>
             </table>
-            <br>
-            <button onclick="window.location.href = '/checkout';">Checkout</button>
         </div>
     </div>
+    <footer>
+        <div>All rights reserved</div>
+        <div>
+            <ul>
+                <li>Like the website?<a href='/contact'> Contact us </a></li>
+                <li>Check the code <a href=https://github.com/Sudhansh6/Cravings>here</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

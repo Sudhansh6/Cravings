@@ -28,7 +28,7 @@ input, textarea
 {
 	border:none;
 	border-left: solid rgb(100,100,100);
-	background-color: rgb(245,245,245);
+	background-color: rgb(240,240,240);
     resize: none;
     padding-left: 20px;
 	font-size: 20px;
@@ -45,16 +45,24 @@ input:focus, textarea:focus
 		background-position: bottom;
 	}
 }
-button
+.button
 {
 	width: 100%;
 	margin: 20px 10px;
     background-color: rgb(20,20,20);
     color: snow;
-	height:40px;
+	height: auto;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
 	text-transform: uppercase;
 	font-size: 25px;
+}
+.options
+{
+	background-color: rgb(240,240,240);
+}
+.subtext
+{
+	font-size: 15px;
 }
 @media screen and (max-width:800px)
 {
@@ -65,7 +73,7 @@ button
     input, textarea
     {
 		font-size: 14px;
-		background-color: rgb(245,245,245);
+		background-color: rgb(240,240,240);
     }
     .section
     {
@@ -75,5 +83,10 @@ button
 	.content
 	{
 		margin-top: 70px;
+	}
+	.body
+	{
+		display: flex;
+		flex-direction: column-reverse;
 	}
 }

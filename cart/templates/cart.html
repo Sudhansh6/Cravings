@@ -71,9 +71,22 @@
                 </tr>
             </table>
             <br>
+            {% if flag %}
             <button onclick = "window.location.href = '/cart/checkout';">Checkout</button>
+            {% else %}
+            <h4>Add items to your cart before checkout</h4>
+            {% endif %}
         </div>
     </div>
+    <footer>
+        <div>All rights reserved</div>
+        <div>
+            <ul>
+                <li>Like the website?<a href='/contact'> Contact us </a></li>
+                <li>Check the code <a href=https://github.com/Sudhansh6/Cravings>here</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

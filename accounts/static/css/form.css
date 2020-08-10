@@ -32,7 +32,7 @@ input, textarea
 {
 	border:none;
 	border-left: solid rgb(100,100,100);
-	background-color: rgb(245,245,245);
+	background-color: rgb(240,240,240);
     resize: none;
     padding-left: 20px;
 	font-size: 20px;
@@ -69,7 +69,7 @@ button
     input, textarea
     {
 		font-size: 14px;
-		background-color: rgb(245,245,245);
+		background-color: rgb(240,240,240);
     }
     .section
     {

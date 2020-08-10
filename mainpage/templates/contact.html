@@ -5,6 +5,7 @@
 <head>
     <title>Cravings!</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
     <link rel="icon" href="{% static 'pictures/icon.png' %}">
     <script src="{% static 'script/script.js' %}"></script>
     <script src="{% static 'script/cart.js' %}"></script>
@@ -40,28 +41,14 @@
         </div>
     </nav>
     <div class=content>
-        {% for message in messages %}
-        <h4>{{message}}</h4>
-        {% endfor %}
-        {% for item in items %}
-        <div class=card id={{item.name}}>
-            <img src="{{item.img.url}}" height=50px class=image>
-            <div class=details>
-                <div class=title>{{ item.name }}</div>
-                <div class=description> {{ item.description }} </div>
-                <div class=price>
-                    -/{{ item.price }}<br>
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <button name=id value={{item.id}} type=submit>Add to Cart</button>
-                    </form>
-
-                </div>
+        <h2>Contact Us</h2>
+        <form method="post" class = form> 
+            <div class=section>
+                {% csrf_token %}
+                {{ form }}
+            <button type="submit" value="Submit">Submit</button>
             </div>
-        </div>
-        {% empty %}
-        NO ITEMS AVAILABLE
-        {% endfor %}
+        </form>
     </div>
     <footer>
         <div>All rights reserved</div>
