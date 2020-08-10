@@ -1,23 +1,49 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title> Login </title>
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="icon" href="{% static 'pictures/icon.png' %}">
 </head>
 
 <body>
-    <h1>Welcome to Cravings!</h1>
-    <form action="login" method="post">
-        {% csrf_token %}
-        <input type=text name=username placeholder="Username" required><br>
-        <input type=password name=password placeholder="Password" required><br>
-        <button type=submit>Submit</button>
-    </form>
-    <div class=messages>
-        {% for message in messages %}
-        <h3>{{message}}</h3>
-        {% endfor %}
+    <nav>
+        <div class=top>
+            <div class="logo">
+                <img src="{% static 'pictures/logo.png' %}" height=60px>
+            </div>
+        </div>
+        <div class=bottom>
+            <ul class = links>
+                <li><a href='/'>HOME</a></li>
+                <li><a href='register'>REGISTER</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class=content>
+        <h1 style=text-align:center;>Welcome back!</h1>
+        <form action="login" method="post" class=form>
+            {% csrf_token %}
+            <div class = section>
+                <label> Username </label>
+                <input type=text name=username placeholder="Username" required>
+                <label> Password </label>
+                <input type=password name=password placeholder="Password" required><br>
+                <button type=submit>Submit</button>
+            </div>
+            
+        </form>
+        <div class=messages>
+            {% for message in messages %}
+            <h4 style=text-align:center;>{{message}}</h4>
+            {% endfor %}
+        </div>
     </div>
+    
 </body>
 
 </html>

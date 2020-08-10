@@ -33,7 +33,7 @@ const query = () => {
     const input = document.getElementById('search');
     var link = capitalize(String(input.value))
     const el = document.getElementById(link);
-    var y = el.offsetTop - el.scrollTop + el.clientTop - 60;
+    var y = el.offsetTop - el.scrollTop + el.clientTop - 80;
     if (screen.width<900)
     {
         y -= 30;

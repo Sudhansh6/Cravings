@@ -1,0 +1,95 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+}
+nav{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    display:flex;
+    justify-content: space-around;
+	align-items: center;
+	min-height: 25px;
+    background-color:  rgb(10,10,10);
+}
+.bottom
+{
+    width:80%;
+    display: flex;
+    justify-content: space-around;
+}
+.links
+{
+    display:flex;
+    width:100%;
+	justify-content: space-around; /*You need to define the space using width*/	
+}
+.link
+{
+    width:100%;
+}
+li
+{
+	list-style-type: none;
+}
+.links a, .links, .link li
+{
+	color: rgb(226,226,226);
+    font-size: 20px;
+    text-decoration: none;
+    padding: 6px 0px;
+}
+a{
+	text-decoration: none;
+}
+a:hover
+{
+	color: rgb(233, 139, 33);
+}
+.content
+{
+    padding: 80px 10px;
+}
+@media screen and (max-width:1440px)
+{
+	.links 
+	{
+		width:100%;
+	}
+}
+
+@media screen and (max-width:800px)
+{
+    nav
+    {
+        display: grid;
+        grid-template-rows: 50% 50%;
+    }
+    .section
+    {
+        display: none;
+        visibility: hidden;
+       font-size: 1px; 
+    }
+    .top
+    {
+        width:100%;
+        grid-row: 1/2;
+        display: flex;
+    }
+    .bottom
+    {
+        width: 100%;
+        grid-row: 2/3;
+        display: flex;
+    }
+    .links
+    {
+        float: center;
+    }
+    .links li
+    {
+        padding: 0px 10px;
+    }
+}

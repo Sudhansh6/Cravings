@@ -1,0 +1,94 @@
+.body
+{
+    display:grid;
+    width:100%;
+    grid-template-columns: 70% 30%;
+}
+.content
+{
+    grid-column: 1/2;
+}
+.checkout
+{
+    grid-column: 2/3;
+    padding: 90px 20px;
+    height: 100%;
+    background-color: rgb(200,200,200);
+}
+.card
+{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-content: space-around;
+    background-color:rgb(220,220,220);
+    box-shadow: 2px 2px 8px slategray;
+    padding: 3px 3px;
+    margin: 15px 0px;
+}
+.image
+{
+    padding: 20px 20px;
+    height: 150px;
+    align-self: center;
+    grid-column: 1/2;
+}
+.details
+{
+    grid-column: 2/3;
+}
+.title
+{
+    text-align: center;
+    font-size: 30px;
+    padding: 3px 0px;
+    font-weight: bold;
+}
+.price
+{
+    padding-top: 10px;
+    text-align: right;
+    font-size: 20px;
+}
+.description
+{
+    font-size: 20px;
+}
+table
+{
+    font-size: 25px;
+}
+td
+{
+    padding: 2px 10px;
+}
+th
+{
+    padding: 15px 0px;
+    text-transform: uppercase;
+}
+@media screen and (max-width:800px)
+{
+    .description
+    {
+        display:none;
+    }
+    .card
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    .body
+    {
+        display: block;
+    }
+    .checkout
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    table
+    {
+        font-size: 16px;
+        padding-bottom: 20px;
+    }
+}

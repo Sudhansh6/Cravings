@@ -1,0 +1,83 @@
+.form, .section
+{
+	visibility: visible;
+    align-self: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.form label
+{
+	text-transform: uppercase;
+    font-size: 25px;
+    padding: 20px 20px;
+}
+.top
+{
+    width:80%;
+}   
+.logo
+{
+    align-self: center;
+}
+.section
+{
+    width: 70%;
+	padding: 20px 20px;
+	margin: 20px 0px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+	background-color: rgb(245,245,245);
+}
+input, textarea
+{
+	border:none;
+	border-left: solid rgb(100,100,100);
+	background-color: rgb(245,245,245);
+    resize: none;
+    padding-left: 20px;
+	font-size: 20px;
+}
+input:focus, textarea:focus
+{
+	outline: none;
+	border-left: solid rgb(40,40,40);
+}
+@media screen and (max-width: 800px)
+{
+	.image
+	{
+		background-position: bottom;
+	}
+}
+button
+{
+	width: 100%;
+	margin: 20px 10px;
+    background-color: rgb(20,20,20);
+    color: snow;
+	height:40px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+	text-transform: uppercase;
+	font-size: 25px;
+}
+@media screen and (max-width:800px)
+{
+	.form label
+    {
+        font-size: 14px;
+    }
+    input, textarea
+    {
+		font-size: 14px;
+		background-color: rgb(245,245,245);
+    }
+    .section
+    {
+		background-color: rgb(245,245,245);
+        width:100%;
+	}
+	.content
+	{
+		margin-top: 70px;
+	}
+}

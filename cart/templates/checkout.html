@@ -6,6 +6,7 @@
     <title>Cravings!</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form2.css' %}">
     <link rel="icon" href="{% static 'pictures/icon.png' %}">
     <script src="{% static 'script/script.js' %}"></script>
 </head>
@@ -38,27 +39,29 @@
             </div>
         </div>
     </nav>
-    <div class=body>
-        <div class = content>
-            <div class=messages>
-            </div>
-            {% for item in items %}
-            <div class=card id={{item.name}}>
-                <img src="{{ item.img.url }}" height=50px class=image>
-                <div class=details>
-                    <div class=title>{{ item.name }}</div>
-                    <div class=description> {{ item.description }} </div>
-                    <div class=price>
-                        -/{{ item.price }}<br>
-                        <form action="" method="post">
-                            {% csrf_token %}
-                            <button name=id value={{item.id}} type=submit>Delete form Cart</button>
-                        </form>
-                    </div>
+    <div class = body >
+        <div class=content>
+            <form class = form>
+                {% csrf_token %}
+                <div class = section>
+                    <label> Delivery address </label>
+                    <input>
+                    <label> Contact No.</label>
+                    <input>
                 </div>
-            </div>
-            {% endfor %}
+                <div class = section>
+                    <label>Credit Card No.</label>
+                    <input>
+                    <label>Name</label>
+                    <input>
+                    <label>Expiry Date</label>
+                    <input>
+                    <label>CVV</label>
+                    <input>
+                </div>
+            </form>  
         </div>
+
         <div class=checkout>
             <table>
                 <tr>
@@ -66,12 +69,32 @@
                     <th></th>
                 </tr>
                 <tr>
-                    <td>Cart Total</td>
+                    <td>Item Total</td>
                     <td>{{sum}}</td>
+                </tr>
+                <tr>
+                    <td>Delivery Fee</td>
+                    <td>{{delivery}}</td>
+                </tr>
+                <tr>
+                    <td>Delivery Tip</td>
+                    <td>
+                        <form method='post'>
+                            <input class=tip action=submit type="number" name="tip" min="5" step="5" style=''>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Taxes and Charges</td>
+                    <td>{{taxes}}</td>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th>{{total}}</th>
                 </tr>
             </table>
             <br>
-            <button onclick = "window.location.href = '/cart/checkout';">Checkout</button>
+            <button onclick="window.location.href = '/checkout';">Checkout</button>
         </div>
     </div>
 </body>

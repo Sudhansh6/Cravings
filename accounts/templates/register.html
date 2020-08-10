@@ -1,24 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title> Registration </title>
+        <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+        <link rel="stylesheet" href="{% static 'css/form.css' %}">
+        <link rel="icon" href="{% static 'pictures/icon.png' %}">
     </head>
     <body>
-        <h1>Welcome to Cravings!</h1>
-        <form action="register" method = "post">
-            {% csrf_token %}
-            <input type=text name=first_name placeholder="First Name" required><br>
-            <input type=text name=last_name placeholder="Last Name" required><br>
-            <input type=text name=username placeholder="Username" required><br>
-            <input type=email name=email placeholder="Email" required><br>
-            <input type=password name=password1 placeholder="Password" required><br>
-            <input type=password name=password2 placeholder="Confirm Password" required><br>
-            <button type = submit>Submit</button>
-        </form>
-        <div class = messages>
-            {% for message in messages %}
-                <h3>{{message}}</h3>
-            {% endfor %}
-        </div>
+        <nav>
+            <div class=top>
+                <div class="logo">
+                    <img src="{% static 'pictures/logo.png' %}" height=60px>
+                </div>
+            </div>
+            <div class=bottom>
+                <ul class = links>
+                    <li><a href='/'>HOME</a></li>
+                    <li><a href='login'>LOGIN</a></li> 
+                </ul>     
+            </div>
+        </nav>
+        <div class = content>
+            <h1 style=text-align:center;>Welcome to Cravings!</h1>
+            <form action="register" method="post" class = form> 
+                {% csrf_token %}
+                <div class=section>
+                    <label> First Name </label>
+                    <input type=text name=first_name placeholder="First Name" required><br>
+                    <label> Last Name </label>
+                    <input type=text name=last_name placeholder="Last Name" required><br>
+                    <label> Username </label>
+                    <input type=text name=username placeholder="Username" required><br>
+                    <label> Email </label>
+                    <input type=email name=email placeholder="abc@xyz.com" required><br>
+                    <label> Password </label>
+                    <input type=password name=password1 placeholder="*********" required><br>
+                    <label> Confirm Password </label>
+                    <input type=password name=password2 placeholder="*********" required><br>
+                    <button type=submit>Submit</button>
+                </div>   
+            </form>
+            <div class=messages>
+                {% for message in messages %}
+                <h4 style=text-align:center;>{{message}}</h4>
+                {% endfor %}
+            </div>
+        </div> 
     </body>
 </html>

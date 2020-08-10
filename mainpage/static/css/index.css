@@ -6,9 +6,9 @@
 .card
 {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 15% 85%;
     justify-content: space-around;
-    background-color: aliceblue;
+    background-color:rgb(220,220,220);
     box-shadow: 2px 2px 8px slategray;
     padding: 3px 3px;
     margin: 15px 0px;
@@ -16,7 +16,7 @@
 .image
 {
     padding: 10px 20px;
-    height: 100px;
+    height: 150px;
     align-content: center;
     grid-column: 1/2;
 }
@@ -27,7 +27,7 @@
 .title
 {
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     padding: 3px 0px;
     font-weight: bold;
 }
@@ -35,11 +35,11 @@
 {
     padding-top: 10px;
     text-align: right;
-    font-size: 14px;
+    font-size: 25px;
 }
 .description
 {
-    font-size: 12px;
+    font-size: 20px;
 }
 #search
 {
@@ -54,21 +54,13 @@ nav{
     justify-content: space-around;
 	align-items: center;
 	min-height: 25px;
-    background-color: rgb(40,40,40);
+    background-color:  rgb(10,10,10);
 }
 .bottom
 {
     width:80%;
     display: flex;
     justify-content: space-around;
-}
-.logo
-{
-	text-transform: uppercase;
-	letter-spacing: 2px;
-    font-size:16px;
-    width:20%;
-	color: rgb(226,226,226);
 }
 .links
 {
@@ -83,10 +75,10 @@ li
 {
 	list-style-type: none;
 }
-.links a, .links
+.links a, .links, .link li
 {
 	color: rgb(226,226,226);
-    font-size: 11px;
+    font-size: 20px;
     text-decoration: none;
     padding: 6px 0px;
 }
@@ -95,7 +87,7 @@ a{
 }
 a:hover
 {
-	color: rgb(226,226,226);
+	color: rgb(233, 139, 33);
 }
 .burger
 {
@@ -116,12 +108,15 @@ a:hover
 	padding-left: 2vw;
 	margin:5vw 20px;
 }
-
+button
+{
+    font-size: 20px;
+}
 @media screen and (max-width:1440px)
 {
 	.links 
 	{
-		width:70%;
+		width:100%;
 	}
 }
 
@@ -133,11 +128,12 @@ a:hover
 		justify-content: space-around;
 		display: flex;
 		flex-direction: column;
+        top: 103px;
         height: 100vh;
-        top: 50px;
+        width:60%;
         right: 0px;
-		background-color: rgb(40,40,40);
-		width: 150px;
+		background-color: rgb(10,10,10);
+        padding : 0px 30px;
 		visibility: hidden;
 	}
 	.links li
@@ -148,7 +144,8 @@ a:hover
 	.burger
 	{
         position: absolute;
-        right:0px;
+        right:10px;
+        top:10px;
 		display: block;
 		cursor: pointer;
     }
@@ -175,14 +172,12 @@ a:hover
     .bottom
     {
         grid-row: 2/3;
-        justify-content: space-between;
         display: flex;
+        width: 100%;
     }
     #search
     {
-        width:200px;
-        font-size: 12px;
-        margin: 10px 0px;
+        float: center;
     }
 
 }
@@ -190,20 +185,18 @@ a:hover
 {
     .card
     {
-        grid-template-columns: 100%;
-        grid-template-rows: 50% 50%;
+        display: flex;
+        flex-direction: column;
     }
     .image
     {
-        height: 70px;
-        padding: 10px 80px;
-        grid-column: 1/2;
-        grid-row: 1/2;
+        align-self: center;
+        padding-bottom: 15px;
+        width: 150px;
     }
-    .details
+    .content
     {
-        grid-column: 1/2;
-        grid-row: 2/3;
+        padding-top: 60px;
     }
 }
 @keyframes navLinkFade
