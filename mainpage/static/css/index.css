@@ -129,23 +129,26 @@ button
 {
 	.links
 	{
-		position:absolute;
+        position:absolute;
 		justify-content: space-around;
-		display: flex;
-		flex-direction: column;
-        top: 103px;
-        height: 100vh;
-        width:60%;
-        right: 0px;
+        display: flex;
+        flex-direction: column;
+        top: 16vh;
+        height: 84vh;
 		background-color: rgb(10,10,10);
-        padding : 0px 30px;
-		visibility: hidden;
+        padding : 0px 40px;
+        visibility: hidden;
+        transform: translateX(100%);
 	}
 	.links li
 	{
 		cursor: pointer;
 		opacity:0;
-	}
+    }
+    .links li, .links a
+    {
+        font-size: 20px;
+    }
 	.burger
 	{
         position: absolute;
@@ -167,7 +170,7 @@ button
     {
         display: grid;
         width: 100%;
-        grid-template-rows: 50% 50%;
+        grid-template-rows: 10vh 6vh;
     }
     .top
     {
@@ -183,6 +186,7 @@ button
     #search
     {
         float: center;
+        width: 100%;
     }
 
 }
@@ -228,7 +232,8 @@ button
 }
 .nav-active
 {
-	visibility: visible;
+    visibility: visible;
+    transform: translateX(-40%);
 }
 .toggle .line1
 {

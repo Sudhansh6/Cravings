@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <head>
     <title>Cravings!</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -28,7 +28,7 @@
             <input type=text placeholder="Search for your craving" id=search onkeyup="query()">
             <div class=link>
                 <ul class="links">
-                    <li><a href='cart/'>CART</a></li>
+                    <li><a href='/'>HOME</a></li>
                     {% if user.is_authenticated %}
                     <li>Hello, {{ user.first_name}}</li>
                     <li><a href='accounts/logout'>SIGN OUT</a></li>
@@ -46,13 +46,23 @@
         {% endfor %}
         <br>
         <h2>Contact Us</h2>
-        <form method="post" class = form> 
-            <div class=section>
-                {% csrf_token %}
-                {{ form }}
-            <button type="submit" value="Submit">Submit</button>
+        <form action="https://formspree.io/mwkrzojv" method="POST" class=form>
+            <div class =section>
+                <label>Name</label>
+                <input type=text name="name">
             </div>
+            <div class=section>
+                <label>Email</label>
+                <input type="text" name="_replyto">
+            </div>
+            <div class=section>
+                <label> Message</label>
+                <textarea name="message"></textarea>
+            </div>
+        
+            <button type="submit" class=button>Send</button>
         </form>
+
     </div>
     <footer>
         <div>All rights reserved</div>

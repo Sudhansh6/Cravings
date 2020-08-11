@@ -29,14 +29,16 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
+        if not User.objects.filter(username=username).exists():
+            messages.info(request, 'Username does not exist in database. Please register.')
+            return redirect(reverse("accounts:login"))
         user = auth.authenticate(username= username, password = password)
         if user is not None:
             auth.login(request,user)
             return redirect("/")
         else:
             messages.info(request,'Username/Password combination is incorrect')
-            return redirect('login')
+            return redirect(reverse("accounts:login"))
     else:
         return render(request,'login.html')
 

@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <head>
     <title>Cravings!</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
@@ -42,9 +42,6 @@
     </nav>
     <div class = body >
         <div class=content>
-            {% for message in messages %}
-            <h4>{{message}}</h4>
-            {% endfor %}
             {% for a in address %}
             <form class = form action = '/cart/checkout' method = 'post'>
                 {% csrf_token %}
@@ -57,7 +54,11 @@
                 </div> 
             </form>
             {% endfor %}
-            <div id=message></div>
+            <div id=message>
+                {% for message in messages %}
+                <h4>{{message}}</h4>
+                {% endfor %}
+            </div>
             <form class=form id=form action ='/cart/checkout' method='post' onSubmit="return checkform()">
                 {% csrf_token %}
                 <div class = section>

@@ -44,6 +44,14 @@ input:focus, textarea:focus
 	{
 		background-position: bottom;
 	}
+	.content
+	{
+		margin:none;
+	}
+	.checkout
+	{
+		margin-top: 70px;
+	}
 }
 .button
 {
@@ -79,10 +87,6 @@ input:focus, textarea:focus
     {
 		background-color: rgb(245,245,245);
         width:100%;
-	}
-	.content
-	{
-		margin-top: 70px;
 	}
 	.body
 	{
